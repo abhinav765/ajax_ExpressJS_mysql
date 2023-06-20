@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function makeRequest()
+        {
+            ajax = createAjaxObject();
+
+
+            ajax.onreadystatechange = changeState;
+
+            var url = "http://localhost:9000/getinfo?ename="+document.f1.ename.value;
+            alert(url);
+            ajax.open('GET',url,true);
+            ajax.send("");
+        }
+        function changeState()
+        {
+            alert(ajax.readyState)
+            if(ajax.readyState==4)
+            {
+                document.getElementById("k").innerHTML=ajax.responseText;
+            }
+        }
+        function createAjaxObject()
+        {
+            try
+            {
+                var Ajax = new XMLHttpRequest();
+                return Ajax;
+            }
+            catch(e)
+            {
+                try{
+                    var Ajax = new ActiveXObject();
+                    return Ajax;
+                }
+                catch(e)
+                {
+                    alert("browser not suppoerted");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form name="f1">
+        Enter Employee Name;
+        <input type="text" name="ename">
+        <input type="button" value="show Info" onclick="makeRequest()">
+    </form>
+    <div id="k"></div>
+</body>
+</html>
