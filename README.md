@@ -19,7 +19,7 @@ at server side and mysql as database...
 
 ## process(step-by-step)
 
-1.first install nodeJS into your machine. after installing NodeJS,npm utility intalled by default 
+1.first install nodeJS into your machine. after installing NodeJS,npm utility intalled by default  
 
 2.now with the help of "npm install expressjs" command install expressjs and "npm install mysql2" for installing mysql2 third party module
 
